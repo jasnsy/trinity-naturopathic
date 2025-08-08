@@ -1,36 +1,113 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+### Overview
 
-## Getting Started
+Tier‑1 service business website template (Next.js App Router) designed for trades and services (plumbing, electrical, HVAC, cleaning, etc.). Includes 5 pages (Home, Services, About, Contact, Location), mobile‑first UI, basic SEO, click‑to‑call, contact form with email adapter, analytics, light/dark theme, configurable branding, and a service‑area polygon map.
 
-First, run the development server:
+### Tech Stack
+
+- Next.js 15 (App Router, RSC first)
+- TypeScript
+- Tailwind CSS 4 + shadcn/ui (Radix primitives)
+- next-themes (light/dark)
+- react-hook-form + zod validation
+- Email adapter: Resend (default) or SMTP (Nodemailer)
+- react-leaflet + Leaflet (dynamic import) for map
+- @vercel/analytics
+
+### Structure
+
+- `app/`: routes and pages (RSC by default)
+- `components/`: UI and site components
+- `content/`: editable content modules (`services.ts`, `faqs.ts`, etc.)
+- `config/business.ts`: single source of truth for branding/company info
+- `lib/`: schemas, mail adapters
+- `public/`: assets (logos, og image, service photos)
+
+### Quick Start
 
 ```bash
+npm i
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+# open http://localhost:3000
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Lightweight checks while editing:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+npm run check # lint + typecheck (no full build)
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Production:
 
-## Learn More
+```bash
+npm run build && npm start
+```
 
-To learn more about Next.js, take a look at the following resources:
+### Customize the Template
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- Company & branding (single source): edit `config/business.ts`
+  - `businessName`, `tagline`, `phone`, `email`, `address`, `serviceAreas`, `hours`
+  - `logo.light`/`logo.dark` paths (place files in `public/`)
+  - `theme.brandColor`, `theme.accentColor`, `theme.radius`
+- Services: edit `content/services.ts`
+  - Each service supports: `title`, `slug`, `summary`, `features[]`, `startingPrice?`, `image?`, `details?`
+  - Place images under `public/photos/` (prefer WebP). Reference with `/photos/...`
+- Location page: edit `app/location/page.tsx`
+  - Replace city description paragraphs
+  - Update `calgaryCommunities` and `nearbyAreas` arrays
+  - Replace `calgaryPolygon` with your `[lat, lng]` pairs
+- Assets
+  - Replace `/public/logo-light.svg`, `/public/logo-dark.svg`, `/public/og-image.png`
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+For a guided retargeting workflow, fill `web/prompt.md` and follow the tasks inside.
 
-## Deploy on Vercel
+### Styling Guide
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- Tailwind CSS utility‑first classes only; avoid custom CSS where possible
+- shadcn/ui components for consistency; prefer composition over overrides
+- Theme colors inherit from CSS variables injected in `app/layout.tsx` using `business.theme`
+- Dark theme: modern dark‑slate palette defined in `app/globals.css`
+- Typography: Plus Jakarta Sans (sans), JetBrains Mono (mono) via `next/font`
+- Responsive: mobile‑first, use `sm/ md/ lg` breakpoints; check header/footer spacing on small screens
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Forms & Email
+
+- Contact forms use `react-hook-form` + Zod (`lib/schema/contact.ts`)
+- Server route: `app/api/contact/route.ts`
+- Email provider adapters:
+  - Resend: `lib/mail/providers/resend.ts` (set `RESEND_API_KEY`)
+  - SMTP: `lib/mail/providers/smtp.ts` (host/port/user/pass)
+
+### Environment
+
+Copy `.env.example` → `.env.local` and set values:
+
+```
+NEXT_PUBLIC_SITE_URL=https://your-domain
+EMAIL_PROVIDER=resend # or smtp
+RESEND_API_KEY=...
+SMTP_HOST=...
+SMTP_PORT=...
+SMTP_USER=...
+SMTP_PASS=...
+NEXT_PUBLIC_ENABLE_ANALYTICS=true
+```
+
+### Accessibility
+
+- Header mobile menu uses Radix Sheet with hidden title for a11y
+- Buttons/links include `aria-label` where appropriate
+- Color contrast suitable for light/dark themes
+
+### Deployment
+
+- Vercel recommended. HTTPS enforced via `vercel.json`
+- Set env vars in Vercel project settings; re‑deploy
+
+### Acceptance Checklist
+
+- Header shows logo + Call button (desktop shows phone number, mobile shows “Call”)
+- Footer 4‑column layout with social/contact links
+- Home and Services reflect your content (images/details/pricing)
+- Location page shows your description, communities, and polygon map
+- Contact form sends email via chosen provider
+- Brand colors and radius applied globally
