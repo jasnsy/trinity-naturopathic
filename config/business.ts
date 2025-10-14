@@ -25,6 +25,7 @@ export type BusinessConfig = {
 	businessName: string;
 	tagline: string;
 	phone: string;
+	fax?: string;
 	email: string;
 	bookingUrl?: string;
 	address: Address;
@@ -45,8 +46,9 @@ export type BusinessConfig = {
 export const business: BusinessConfig = {
 	businessName: "Trinity Naturopathic",
 	tagline: "Holistic Mental Health & Wellness Care in Fort McMurray",
-	phone: "+1 (780) 555-0123",
-	email: "info@trinitynaturopathic.ca",
+	phone: "+1 (587) 644-6656",
+	fax: "+1 (587) 701-5263",
+	email: "info@trinitynaturopathic.com",
 	bookingUrl: undefined,
 	address: {
 		line1: "123 Main St",
@@ -73,8 +75,12 @@ export const business: BusinessConfig = {
 		"Wood Buffalo",
 	],
 	hours: [
-		{ day: "Mon-Fri", open: "09:00", close: "17:00" },
-		{ day: "Sat", open: "10:00", close: "14:00" },
+		{ day: "Monday", open: "10:00", close: "18:00" },
+		{ day: "Tuesday", open: "10:00", close: "18:00" },
+		{ day: "Wednesday", open: "10:00", close: "18:00" },
+		{ day: "Thursday", open: "10:00", close: "17:00" },
+		{ day: "Friday", open: "11:00", close: "17:00" },
+		{ day: "Saturday", open: "10:00", close: "16:00" },
 	],
 	licenseNumber: "ND-FMMC-2025",
 	insuranceCarrier: "Professional Liability Insurance Corp.",
