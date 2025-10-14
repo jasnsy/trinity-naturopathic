@@ -5,6 +5,7 @@ import { business } from "@/config/business";
 import { ThemeProvider } from "@/components/theme-provider";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
+import { StructuredData } from "@/components/structured-data";
 // moved ThemeToggle into SiteHeader
 import { Analytics } from "@vercel/analytics/react";
 
@@ -21,13 +22,23 @@ const appMono = JetBrains_Mono({
 
 export const metadata: Metadata = {
 	title: `${business.businessName} — ${business.tagline}`,
-	description: business.tagline,
+	description: `Licensed naturopathic doctors in Fort McMurray specializing in mental health, BHRT therapy, Walsh Protocol, and integrative wellness care. Evidence-based natural medicine for depression, anxiety, ADHD, and neurological conditions.`,
 	metadataBase: new URL(
 		process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000"
 	),
+	keywords: [
+		"naturopathic doctor Fort McMurray",
+		"mental health naturopath",
+		"BHRT therapy Alberta",
+		"Walsh Protocol Fort McMurray",
+		"anxiety treatment natural",
+		"depression naturopathic care",
+		"ADHD natural treatment",
+		"integrative medicine Fort McMurray",
+	],
 	openGraph: {
 		title: `${business.businessName} — ${business.tagline}`,
-		description: business.tagline,
+		description: `Licensed naturopathic doctors specializing in mental health and integrative wellness in Fort McMurray. Natural treatment for depression, anxiety, ADHD, and neurological conditions.`,
 		url: "/",
 		siteName: business.businessName,
 		images: [
@@ -40,6 +51,12 @@ export const metadata: Metadata = {
 		],
 		locale: "en_CA",
 		type: "website",
+	},
+	twitter: {
+		card: "summary_large_image",
+		title: `${business.businessName} — ${business.tagline}`,
+		description: `Licensed naturopathic doctors specializing in mental health and integrative wellness in Fort McMurray.`,
+		images: ["/og-image.png"],
 	},
 };
 
@@ -56,6 +73,9 @@ export default function RootLayout({
 	} as React.CSSProperties;
 	return (
 		<html lang="en" suppressHydrationWarning>
+			<head>
+				<StructuredData />
+			</head>
 			<body
 				className={`${appSans.variable} ${appMono.variable} antialiased`}
 				style={styleVars}

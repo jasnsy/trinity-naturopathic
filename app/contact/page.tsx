@@ -1,5 +1,20 @@
+import type { Metadata } from "next";
 import { business } from "@/config/business";
 import { ContactForm } from "@/components/contact-form";
+
+export const metadata: Metadata = {
+	title: `Contact Us | ${business.businessName}`,
+	description: `Book your naturopathic consultation in Fort McMurray. Call ${business.phone} or send us a message to schedule your appointment for mental health and wellness care.`,
+	openGraph: {
+		title: `Contact ${business.businessName}`,
+		description: `Schedule your naturopathic appointment in Fort McMurray for integrative mental health and wellness care.`,
+	},
+	twitter: {
+		card: "summary",
+		title: `Contact ${business.businessName}`,
+		description: `Schedule your naturopathic appointment in Fort McMurray for integrative mental health and wellness care.`,
+	},
+};
 
 export default function ContactPage() {
 	return (
