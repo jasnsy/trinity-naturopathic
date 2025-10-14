@@ -18,7 +18,6 @@ import {
 const links = [
 	{ href: "/", label: "Home" },
 	{ href: "/services", label: "Services" },
-	{ href: "/conditions", label: "Conditions" },
 	{ href: "/about", label: "About" },
 	{ href: "/contact", label: "Contact" },
 	{ href: "/location", label: "Location" },

@@ -1,49 +1,80 @@
 import { business } from "@/config/business";
 import { ServiceAreaMap } from "@/components/service-area-map";
 
-// Approximate polygon encompassing Fort McMurray and surrounding area
-const fortMcMurrayPolygon: [number, number][] = [
-	[57.05, -111.85], // North
-	[57.05, -110.95], // Northeast
-	[56.95, -110.75], // East near Fort McKay
-	[56.75, -110.60], // Southeast
-	[56.55, -110.70], // South-southeast near Conklin
-	[56.35, -111.10], // South near Janvier
-	[56.30, -111.50], // Southwest
-	[56.40, -111.80], // West-southwest near Anzac
-	[56.60, -111.95], // West
-	[56.80, -111.95], // Northwest
-	[57.05, -111.85], // Back to north
+// Approximate polygon encompassing Calgary and listed nearby areas
+const calgaryPolygon: [number, number][] = [
+	[51.6, -115.8],
+	[51.55, -115.1],
+	[51.55, -114.7],
+	[51.55, -114.25],
+	[51.55, -113.9],
+	[51.4, -113.5],
+	[51.1, -113.3],
+	[50.7, -113.3],
+	[50.45, -113.6],
+	[50.4, -114.4],
+	[50.45, -115.1],
+	[50.7, -115.6],
+	[51.0, -115.8],
+	[51.3, -115.9],
+	[51.6, -115.8],
 ];
 
-const fortMcMurrayCommunities: string[] = [
-	"Abasand Heights",
-	"Beacon Hill",
-	"Dickinsfield",
+const calgaryCommunities: string[] = [
+	"Beltline",
+	"Altadore",
+	"Arbour Lake",
+	"Hillhurst",
+	"Signal Hill",
+	"Edgemont",
 	"Downtown",
-	"Eagle Ridge",
-	"Grayling Terrace",
-	"Gregoire",
-	"Parsons Creek",
-	"Prairie Creek",
-	"Saline Creek",
-	"Stone Creek",
-	"Thickwood Heights",
-	"Timberlea",
-	"Waterways",
-	"Wood Buffalo",
-	"Lower Townsite",
-	"MacDonald Island",
-	"Draper",
+	"Inglewood",
+	"Aspen Woods",
+	"Pineridge",
+	"Eau Claire",
+	"West Hillhurst",
+	"Elbow Park",
+	"Tuxedo Park",
+	"Hounsfield Heights/Briar Hill",
+	"Winston Heights-Mountview",
+	"Banff Trail",
+	"South Calgary",
+	"East Village",
+	"Crescent Heights",
+	"Cougar Ridge",
+	"Discovery Ridge",
+	"Erlton",
+	"Scenic Acres",
+	"Cliff Bungalow",
+	"Dalhousie",
+	"Scarboro",
+	"Spruce Cliff",
+	"Killarney",
+	"Renfrew",
+	"Palliser",
+	"Downtown Commercial",
+	"Lower Mount Royal",
 ];
 
 const nearbyAreas: string[] = [
-	"Anzac",
-	"Janvier",
-	"Conklin",
-	"Fort McKay",
-	"Gregoire Lake Estates",
-	"Saprae Creek",
+	"Airdrie",
+	"Okotoks",
+	"Chestermere",
+	"Crossfield",
+	"Morley",
+	"Cochrane",
+	"De Winton",
+	"High River",
+	"Springbank",
+	"Langdon",
+	"Strathmore",
+	"Black Diamond",
+	"Banff",
+	"Canmore",
+	"Turner Valley",
+	"Bearspaw",
+	"Heritage Point",
+	"Brooks",
 ];
 
 export default function LocationPage() {
@@ -53,56 +84,62 @@ export default function LocationPage() {
 				<h1 className="text-3xl font-semibold">Service Area</h1>
 				<div className="prose prose-invert max-w-none text-foreground">
 					<p>
-						Fort McMurray, Alberta is located in the heart of the Athabasca Oil
-						Sands region in northeastern Alberta. With a population of approximately
-						80,000 in the urban service area, Fort McMurray serves as the economic
-						hub of the Regional Municipality of Wood Buffalo. The community is known
-						for its diverse, transient population working in resource industries, shift
-						work culture, and resilient spirit demonstrated through the 2016 wildfire
-						recovery. From Thickwood Heights and Timberlea to Waterways and Downtown,
-						residents face unique health challenges related to isolation, demanding work
-						schedules, and limited access to specialized healthcare services.
+						Calgary, Alberta sits where the prairie meets the Rocky Mountain
+						foothills, and that geography defines the city’s pace, climate, and
+						culture. With a population topping one million, Calgary blends
+						entrepreneurial energy with easy access to trails, rivers, and the
+						mountains. The Bow and Elbow Rivers wind through a connected pathway
+						network, while neighbourhoods range from century homes and post‑war
+						bungalows to dense urban infills and new suburban communities. The
+						city is famous for the Calgary Stampede—ten days every July that
+						bring a global spotlight, rodeo, midway, and community breakfasts to
+						nearly every corner. Sports are a year‑round heartbeat: the Calgary
+						Flames draw packed houses at the Saddledome, the Calgary Stampeders
+						light up McMahon Stadium, and local arenas and fields power minor
+						hockey, soccer, ringette, and more.
 					</p>
           <br/>
 					<p>
-						Fort McMurray's remote location and resource-based economy create specific
-						mental health considerations. Long work hours, shift work disrupting circadian
-						rhythms, extended time away from family, social isolation, and limited daylight
-						during winter months contribute to higher rates of depression, anxiety, substance
-						use, and burnout. The 2016 wildfire left lasting impacts on community mental
-						health, with many residents experiencing trauma, grief, and ongoing stress.
-						Access to specialized mental health services remains limited, with long wait
-						times for psychiatric care and few practitioners offering integrative treatment
-						approaches.
+						Weather is a defining factor for buildings here. Deep winter freezes
+						and windchill push plumbing to the limit, especially in exterior
+						walls, garages, crawlspaces, and unconditioned mechanical rooms.
+						Sudden Chinook warm‑ups swing temperatures by double digits,
+						expanding and contracting materials and stressing fittings. Spring
+						melts raise groundwater and test sump pumps, backwater valves, and
+						weeping tile. Hard water is the everyday opponent—Calgary’s mineral
+						content leaves scale on fixtures and inside water heaters, erodes
+						cartridge valves, reduces tank and tankless efficiency, and shortens
+						appliance life without maintenance.
 					</p>
           <br/>
 					<p>
-						From a naturopathic perspective, we routinely address: mood disorders exacerbated
-						by vitamin D deficiency from limited winter sunlight; anxiety and sleep disturbances
-						related to shift work and circadian disruption; ADHD symptoms in both children and
-						adults seeking non-pharmaceutical options; substance use and addiction recovery
-						support; trauma and PTSD following community disasters; chronic stress and burnout
-						from demanding work schedules; and neurological symptoms including migraines,
-						brain fog, and cognitive concerns. We also provide preventative care addressing
-						nutritional deficiencies common in northern climates, gut health optimization,
-						and resilience-building strategies for individuals working in high-stress
-						environments.
+						From a plumbing perspective, we routinely address: frozen or burst
+						lines in uninsulated chases; sediment‑loaded hot water tanks and
+						spent anode rods; tankless systems starved for flow by scale; slow
+						drains from grease, sags, or inadequate venting; and sewer backups
+						where tree roots find older clay laterals. In infills and commercial
+						spaces, we balance recirculation loops, calibrate mixing valves,
+						test backflow preventers, and tune hydronic systems that share
+						domestic hot water. Preventative measures—pipe insulation,
+						heat‑trace on vulnerable runs, expansion tanks, PRV service, annual
+						descaling, and camera inspections—save money and headaches before
+						peak season hits.
 					</p>
           <br/>
 					<p>
-						Whether you live in Abasand Heights, Beacon Hill, Parsons Creek, or one of
-						the rural hamlets, we deliver personalized naturopathic care that respects your
-						unique circumstances, work schedule, and health goals. We understand the challenges
-						of accessing healthcare in a remote community and work to provide comprehensive,
-						evidence-based natural medicine that complements conventional care. Our team offers
-						compassionate, non-judgmental support for mental health and neurological conditions,
-						helping Fort McMurray residents achieve optimal wellness despite the region's
-						unique challenges.
+						Whether you live in Beltline, Killarney, Renfrew, Dalhousie, or a
+						newer community on the city’s edge, we tailor solutions to
+						construction era, usage, and water conditions. We also help navigate
+						City of Calgary permits, code requirements, and utility‑smart
+						upgrades that keep bills down while improving performance. Our team
+						delivers clean, code‑compliant workmanship with transparent pricing
+						and respectful service—so your plumbing is one less thing to worry
+						about when the weather swings.
 					</p>
 				</div>
 				<p className="text-muted-foreground">
-					We proudly serve Fort McMurray and surrounding communities including{" "}
-					{business.serviceAreas.join(", ")}.
+					We proudly serve Calgary and surrounding communities including{" "}
+					{business.serviceAreas.join(", ")}. 
           <br/>
           Our office is located at{" "}
 					{business.address.line1}, {business.address.city},{" "}
@@ -110,13 +147,13 @@ export default function LocationPage() {
 				</p>
 			</div>
 
-			<ServiceAreaMap points={fortMcMurrayPolygon} />
+			<ServiceAreaMap points={calgaryPolygon} />
 
 			<div className="grid gap-8 lg:grid-cols-2">
 				<div>
-					<h2 className="text-2xl font-semibold">Fort McMurray Communities</h2>
+					<h2 className="text-2xl font-semibold">Calgary Communities</h2>
 					<ul className="mt-4 grid gap-2 sm:grid-cols-2">
-						{fortMcMurrayCommunities.map((c) => (
+						{calgaryCommunities.map((c) => (
 							<li key={c} className="flex items-center gap-2 text-sm">
 								<span aria-hidden>📍</span>
 								<span>{c}</span>
@@ -126,7 +163,7 @@ export default function LocationPage() {
 				</div>
 				<div>
 					<h2 className="text-2xl font-semibold">
-						Nearby Areas We Serve
+						Areas Outside of Calgary We Serve
 					</h2>
 					<ul className="mt-4 grid gap-2 sm:grid-cols-2">
 						{nearbyAreas.map((c) => (

@@ -14,7 +14,7 @@ export const smtpProvider = (): EmailProvider => {
 		async send({ to, subject, html }: SendEmailParams) {
 			await transporter.sendMail({
 				to,
-				from: "Trinity Naturopathic <noreply@trinitynaturopathic.example>",
+				from: "Acme Inc. <noreply@acmeinc.example>",
 				subject,
 				html,
 			});

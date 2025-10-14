@@ -9,15 +9,15 @@ export const testimonials: Testimonial[] = [
 	{
 		name: "Jordan P.",
 		content:
-			"Trinity Naturopathic helped me manage my anxiety with natural therapies. Professional, compassionate, and effective.",
-		location: "Fort McMurray, AB",
+			"Acme fixed our burst pipe within hours. Professional, quick, and fair pricing.",
+		location: "Calgary, AB",
 		rating: 5,
 	},
 	{
 		name: "Samantha L.",
 		content:
-			"Dr. Melanie helped me find relief from chronic migraines. Her holistic approach made all the difference!",
-		location: "Fort McMurray, AB",
+			"They installed our tankless heater seamlessly. Highly recommend Acme!",
+		location: "Airdrie, AB",
 		rating: 5,
 	},
 ];

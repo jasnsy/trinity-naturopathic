@@ -5,12 +5,6 @@ export default function ServicesPage() {
 	return (
 		<section>
 			<h1 className="text-3xl font-semibold mb-6">Services</h1>
-			<p className="text-muted-foreground mb-8">
-				We offer a comprehensive range of evidence-based naturopathic services and therapies designed to
-				address your unique health needs. From advanced diagnostic testing to personalized treatment protocols,
-				our services integrate traditional healing wisdom with modern medical science to support your journey
-				toward optimal health and wellness.
-			</p>
 			<div className="grid gap-6 sm:grid-cols-2">
 				{services.map((s) => (
 					<article key={s.slug} className="border rounded-lg overflow-hidden">
