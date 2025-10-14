@@ -9,7 +9,7 @@ export const resendProvider = (): EmailProvider => {
 			if (!apiKey) throw new Error("RESEND_API_KEY missing");
 			await client.emails.send({
 				to,
-				from: "Acme Inc. <noreply@acmeinc.example>",
+				from: "Trinity Naturopathic <noreply@trinitynaturopathic.example>",
 				subject,
 				html,
 			});

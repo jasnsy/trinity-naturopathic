@@ -71,6 +71,7 @@ export const SiteFooter: React.FC = () => {
 				<nav className="grid gap-2 text-sm" aria-label="Footer">
 					<Link href="/">Home</Link>
 					<Link href="/services">Services</Link>
+					<Link href="/conditions">Conditions</Link>
 					<Link href="/about">About</Link>
 					<Link href="/location">Location</Link>
 					<Link href="/contact">Contact</Link>
