@@ -91,8 +91,9 @@ export const business: BusinessConfig = {
 		alt: "Trinity Naturopathic Logo",
 	},
 	social: {
-		facebook: "https://facebook.com/trinitynaturopathic",
-		instagram: "https://instagram.com/trinitynaturopathic",
+		facebook: "https://www.facebook.com/TrinityNaturopathic/",
+		instagram: "https://www.instagram.com/trinitynaturopathic",
+		linkedin: "https://www.linkedin.com/company/trinitynaturopathic/",
 	},
 	theme: { brandColor: "#8FAE93", accentColor: "#61714D", radius: 0.625 },
 };
