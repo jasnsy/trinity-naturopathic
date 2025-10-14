@@ -1,5 +1,21 @@
 import Image from "next/image";
+import type { Metadata } from "next";
 import { services } from "@/content/services";
+import { business } from "@/config/business";
+
+export const metadata: Metadata = {
+	title: `Services | ${business.businessName}`,
+	description: `Comprehensive naturopathic services in Fort McMurray including BHRT Therapy, Walsh Protocol, Hair Tissue Mineral Analysis, Bioscan SRT, Clinical Nutrition, and Genetic Testing for mental health and wellness.`,
+	openGraph: {
+		title: `Our Services | ${business.businessName}`,
+		description: `Evidence-based naturopathic therapies for mental health, hormone balance, and neurological wellness in Fort McMurray.`,
+	},
+	twitter: {
+		card: "summary_large_image",
+		title: `Our Services | ${business.businessName}`,
+		description: `Evidence-based naturopathic therapies for mental health, hormone balance, and neurological wellness in Fort McMurray.`,
+	},
+};
 
 export default function ServicesPage() {
 	return (

@@ -1,4 +1,19 @@
+import type { Metadata } from "next";
 import { business } from "@/config/business";
+
+export const metadata: Metadata = {
+	title: `About Us | ${business.businessName}`,
+	description: `Licensed naturopathic doctors specializing in integrative mental health care and neurological conditions in Fort McMurray. Evidence-based natural medicine working alongside conventional care.`,
+	openGraph: {
+		title: `About ${business.businessName}`,
+		description: `Specialized naturopathic clinic serving Fort McMurray with integrative mental health care and holistic wellness using evidence-based natural medicine.`,
+	},
+	twitter: {
+		card: "summary",
+		title: `About ${business.businessName}`,
+		description: `Specialized naturopathic clinic serving Fort McMurray with integrative mental health care and holistic wellness using evidence-based natural medicine.`,
+	},
+};
 
 export default function AboutPage() {
 	return (

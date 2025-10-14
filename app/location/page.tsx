@@ -1,5 +1,20 @@
+import type { Metadata } from "next";
 import { business } from "@/config/business";
 import { ServiceAreaMap } from "@/components/service-area-map";
+
+export const metadata: Metadata = {
+	title: `Service Area | ${business.businessName}`,
+	description: `Serving Fort McMurray and surrounding communities including Abasand Heights, Thickwood Heights, Timberlea, Waterways, Anzac, and Fort McKay with naturopathic mental health care.`,
+	openGraph: {
+		title: `Service Area - Fort McMurray | ${business.businessName}`,
+		description: `Naturopathic mental health services across Fort McMurray neighborhoods and surrounding areas in the Regional Municipality of Wood Buffalo.`,
+	},
+	twitter: {
+		card: "summary",
+		title: `Service Area - Fort McMurray | ${business.businessName}`,
+		description: `Naturopathic mental health services across Fort McMurray neighborhoods and surrounding areas in the Regional Municipality of Wood Buffalo.`,
+	},
+};
 
 // Approximate polygon encompassing Fort McMurray and surrounding area
 const fortMcMurrayPolygon: [number, number][] = [
