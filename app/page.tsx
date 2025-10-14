@@ -52,7 +52,7 @@ export default function Home() {
 				<h2 className="text-2xl font-semibold">Book Your Appointment</h2>
 				<p className="text-muted-foreground">
 					Ready to start your journey to better health? Contact us to schedule your initial
-					consultation. We'll review your health concerns and create a personalized treatment
+					consultation. We&apos;ll review your health concerns and create a personalized treatment
 					plan tailored to your unique needs.
 				</p>
 				<ContactForm />

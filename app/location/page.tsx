@@ -65,7 +65,7 @@ export default function LocationPage() {
 					</p>
           <br/>
 					<p>
-						Fort McMurray's remote location and resource-based economy create specific
+						Fort McMurray&apos;s remote location and resource-based economy create specific
 						mental health considerations. Long work hours, shift work disrupting circadian
 						rhythms, extended time away from family, social isolation, and limited daylight
 						during winter months contribute to higher rates of depression, anxiety, substance
@@ -96,7 +96,7 @@ export default function LocationPage() {
 						of accessing healthcare in a remote community and work to provide comprehensive,
 						evidence-based natural medicine that complements conventional care. Our team offers
 						compassionate, non-judgmental support for mental health and neurological conditions,
-						helping Fort McMurray residents achieve optimal wellness despite the region's
+						helping Fort McMurray residents achieve optimal wellness despite the region&apos;s
 						unique challenges.
 					</p>
 				</div>
