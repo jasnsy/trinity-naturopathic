@@ -111,4 +111,3 @@ NEXT_PUBLIC_ENABLE_ANALYTICS=true
 - Location page shows your description, communities, and polygon map
 - Contact form sends email via chosen provider
 - Brand colors and radius applied globally
-# trinity-naturopathic

@@ -16,8 +16,8 @@ type ServiceAreaMapProps = {
 
 export const ServiceAreaMap: React.FC<ServiceAreaMapProps> = ({
 	points,
-	center = [51.0447, -114.0719],
-	zoom = 10,
+	center = [56.7267, -111.3790], // Fort McMurray coordinates
+	zoom = 9,
 }) => {
 	// Leaflet styles (minimal)
 	React.useEffect(() => {
