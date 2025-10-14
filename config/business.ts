@@ -51,7 +51,7 @@ export const business: BusinessConfig = {
 	email: "info@trinitynaturopathic.com",
 	bookingUrl: undefined,
 	address: {
-		line1: "123 Main St",
+		line1: "167 Peterson Lane",
 		city: "Fort McMurray",
 		state: "AB",
 		postalCode: "T9H 3G3",
