@@ -95,5 +95,5 @@ export const business: BusinessConfig = {
 		instagram: "https://www.instagram.com/trinitynaturopathic",
 		linkedin: "https://www.linkedin.com/company/trinitynaturopathic/",
 	},
-	theme: { brandColor: "#8FAE93", accentColor: "#61714D", radius: 0.625 },
+	theme: { brandColor: "#c2a887", accentColor: "#c2a887", radius: 0.625 },
 };
