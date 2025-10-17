@@ -69,48 +69,68 @@ export default function AboutPage() {
 					{teamMembers.map((member) => (
 						<article
 							key={member.name}
-							className="border rounded-lg overflow-hidden h-full flex flex-col"
+							className="border rounded-lg overflow-hidden h-full flex flex-col group hover:shadow-lg transition-shadow"
 						>
-							{member.photo && (
-								<div className="relative w-full h-64 bg-muted">
-									<Image
-										src={member.photo}
-										alt={member.name}
-										fill
-										className="object-cover"
-									/>
-								</div>
-							)}
-							<div className="p-4 space-y-2 flex-1 flex flex-col">
-								<div className="flex-1 space-y-2">
-									<h3 className="text-xl font-semibold">{member.name}</h3>
-									<p className="text-sm font-medium text-muted-foreground">
-										{member.title}
-									</p>
-									<p className="text-sm text-muted-foreground">
-										{member.shortBio}
-									</p>
-									{member.specialties && member.specialties.length > 0 && (
-										<div className="pt-2">
-											<p className="text-xs font-semibold mb-1">Specialties:</p>
-											<div className="flex flex-wrap gap-1">
-												{member.specialties.map((specialty) => (
-													<span
-														key={specialty}
-														className="text-xs px-2 py-1 bg-muted rounded"
-													>
-														{specialty}
-													</span>
-												))}
+							<Link
+								href={`/about/${member.slug}`}
+								className="flex-1 flex flex-col"
+							>
+								{member.photo && (
+									<div className="relative w-full h-64 bg-muted">
+										<Image
+											src={member.photo}
+											alt={member.name}
+											fill
+											className="object-cover group-hover:scale-105 transition-transform duration-300"
+										/>
+									</div>
+								)}
+								<div className="p-4 space-y-2 flex-1 flex flex-col">
+									<div className="flex-1 space-y-2">
+										<h3 className="text-xl font-semibold group-hover:text-primary transition-colors">
+											{member.name}
+										</h3>
+										<p className="text-sm font-medium text-muted-foreground">
+											{member.title}
+										</p>
+										<p className="text-sm text-muted-foreground line-clamp-3">
+											{member.shortBio}
+										</p>
+										{member.specialties && member.specialties.length > 0 && (
+											<div className="pt-2">
+												<p className="text-xs font-semibold mb-1">
+													Specialties:
+												</p>
+												<div className="flex flex-wrap gap-1">
+													{member.specialties.slice(0, 3).map((specialty) => (
+														<span
+															key={specialty}
+															className="text-xs px-2 py-1 bg-muted rounded"
+														>
+															{specialty}
+														</span>
+													))}
+													{member.specialties.length > 3 && (
+														<span className="text-xs px-2 py-1 bg-muted rounded">
+															+{member.specialties.length - 3} more
+														</span>
+													)}
+												</div>
 											</div>
-										</div>
-									)}
+										)}
+									</div>
 								</div>
-								<div className="pt-2">
-									<Button asChild className="w-full" size="sm">
-										<Link href={member.bookNowUrl} target="_blank">Book Now</Link>
-									</Button>
-								</div>
+							</Link>
+							<div className="p-4 pt-0">
+								<Button asChild className="w-full" size="sm">
+									<Link
+										href={member.bookNowUrl}
+										target="_blank"
+										rel="noopener noreferrer"
+									>
+										Book Now
+									</Link>
+								</Button>
 							</div>
 						</article>
 					))}
