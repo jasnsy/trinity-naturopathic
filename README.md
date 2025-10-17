@@ -1,113 +1,190 @@
-### Overview
+# Trinity Naturopathic
 
-Tier‑1 service business website template (Next.js App Router) designed for trades and services (plumbing, electrical, HVAC, cleaning, etc.). Includes 5 pages (Home, Services, About, Contact, Location), mobile‑first UI, basic SEO, click‑to‑call, contact form with email adapter, analytics, light/dark theme, configurable branding, and a service‑area polygon map.
+Website for Trinity Naturopathic, a specialized naturopathic clinic in Fort McMurray, Alberta, focusing on integrative mental health care and holistic wellness.
 
-### Tech Stack
+## About Trinity Naturopathic
 
-- Next.js 15 (App Router, RSC first)
-- TypeScript
-- Tailwind CSS 4 + shadcn/ui (Radix primitives)
-- next-themes (light/dark)
-- react-hook-form + zod validation
-- Email adapter: Resend (default) or SMTP (Nodemailer)
-- react-leaflet + Leaflet (dynamic import) for map
-- @vercel/analytics
+Trinity Naturopathic provides comprehensive naturopathic medicine services with a focus on mental health and neurological conditions. Our clinic serves Fort McMurray and the Regional Municipality of Wood Buffalo, offering evidence-based natural therapies including BHRT, Walsh Protocol, Hair Tissue Mineral Analysis, Bioscan SRT, Clinical Nutrition, and Genetic Testing.
 
-### Structure
+## Contact Information
 
-- `app/`: routes and pages (RSC by default)
-- `components/`: UI and site components
-- `content/`: editable content modules (`services.ts`, `faqs.ts`, etc.)
-- `config/business.ts`: single source of truth for branding/company info
-- `lib/`: schemas, mail adapters
-- `public/`: assets (logos, og image, service photos)
+- **Address**: 167 Peterson Lane, Fort McMurray, AB T9H 3G3
+- **Phone**: (587) 644-6656
+- **Fax**: (587) 701-5263
+- **Email**: info@trinitynaturopathic.com
 
-### Quick Start
+### Clinic Hours
+
+- **Monday - Wednesday**: 10:00 AM - 6:00 PM
+- **Thursday**: 10:00 AM - 5:00 PM
+- **Friday**: 11:00 AM - 5:00 PM
+- **Saturday**: 10:00 AM - 4:00 PM
+
+*Hours vary depending on practitioner availability. Office hours may change on stat holidays - please contact us to confirm.*
+
+## Services Offered
+
+- Naturopathic Medicine
+- Bio-Identical Hormone Replacement Therapy (BHRT)
+- Walsh Protocol
+- Hair Tissue Mineral Analysis
+- Bioscan SRT
+- Clinical Nutrition
+- Genetic Testing
+- Health & Wellness Courses
+- Weight Loss Bootcamp
+
+## Conditions We Treat
+
+Specializing in mental health and neurological conditions including:
+- Mood Disorders (Depression, Bipolar)
+- Anxiety Disorders
+- ADHD and ADD
+- OCD
+- PTSD and Trauma
+- Eating Disorders
+- Autism Spectrum Disorders
+- Personality Disorders
+- Substance Use Disorders
+- Sleep Disorders
+- Neurological Conditions
+
+## Tech Stack
+
+- **Framework**: Next.js 15 (App Router, React Server Components)
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS 4 + shadcn/ui (Radix primitives)
+- **Theme**: next-themes (light/dark mode support)
+- **Forms**: react-hook-form + Zod validation
+- **Email**: Resend or SMTP (Nodemailer)
+- **Maps**: react-leaflet + Leaflet
+- **Analytics**: Vercel Analytics
+
+## Project Structure
+
+```
+app/              - Next.js App Router pages and API routes
+components/       - React components (ui/ contains shadcn components)
+config/           - Business configuration (business.ts)
+content/          - Content modules (services, symptoms, FAQs, testimonials)
+lib/              - Utilities, schemas, email adapters
+public/           - Static assets (logos, images, OG image)
+```
+
+## Development
+
+### Prerequisites
+
+- Node.js 18+ and npm
+
+### Getting Started
 
 ```bash
-npm i
+# Install dependencies
+npm install
+
+# Run development server
 npm run dev
-# open http://localhost:3000
+
+# Open http://localhost:3000
 ```
 
-Lightweight checks while editing:
+### Development Commands
 
 ```bash
-npm run check # lint + typecheck (no full build)
+npm run dev          # Start dev server with Turbopack
+npm run build        # Production build
+npm run start        # Start production server
+npm run lint         # Run ESLint
+npm run typecheck    # Type check without building
+npm run check        # Run both lint and typecheck (fast pre-commit check)
 ```
 
-Production:
+## Configuration
 
-```bash
-npm run build && npm start
-```
+### Business Information
 
-### Customize the Template
+All business details are centralized in `config/business.ts`:
+- Business name, tagline, contact info
+- Address and service areas
+- Operating hours
+- Social media links
+- Theme colors (brand, accent, radius)
+- Logo paths
 
-- Company & branding (single source): edit `config/business.ts`
-  - `businessName`, `tagline`, `phone`, `email`, `address`, `serviceAreas`, `hours`
-  - `logo.light`/`logo.dark` paths (place files in `public/`)
-  - `theme.brandColor`, `theme.accentColor`, `theme.radius`
-- Services: edit `content/services.ts`
-  - Each service supports: `title`, `slug`, `summary`, `features[]`, `startingPrice?`, `image?`, `details?`
-  - Place images under `public/photos/` (prefer WebP). Reference with `/photos/...`
-- Location page: edit `app/location/page.tsx`
-  - Replace city description paragraphs
-  - Update `calgaryCommunities` and `nearbyAreas` arrays
-  - Replace `calgaryPolygon` with your `[lat, lng]` pairs
-- Assets
-  - Replace `/public/logo-light.svg`, `/public/logo-dark.svg`, `/public/og-image.png`
+### Content Management
 
-For a guided retargeting workflow, fill `web/prompt.md` and follow the tasks inside.
+- **Services**: Edit `content/services.ts`
+- **Conditions/Symptoms**: Edit `content/symptoms.ts`
+- **FAQs**: Edit `content/faqs.ts`
+- **Testimonials**: Edit `content/testimonials.ts`
 
-### Styling Guide
+### Environment Variables
 
-- Tailwind CSS utility‑first classes only; avoid custom CSS where possible
-- shadcn/ui components for consistency; prefer composition over overrides
-- Theme colors inherit from CSS variables injected in `app/layout.tsx` using `business.theme`
-- Dark theme: modern dark‑slate palette defined in `app/globals.css`
-- Typography: Plus Jakarta Sans (sans), JetBrains Mono (mono) via `next/font`
-- Responsive: mobile‑first, use `sm/ md/ lg` breakpoints; check header/footer spacing on small screens
+Copy `.env.example` to `.env.local` and configure:
 
-### Forms & Email
-
-- Contact forms use `react-hook-form` + Zod (`lib/schema/contact.ts`)
-- Server route: `app/api/contact/route.ts`
-- Email provider adapters:
-  - Resend: `lib/mail/providers/resend.ts` (set `RESEND_API_KEY`)
-  - SMTP: `lib/mail/providers/smtp.ts` (host/port/user/pass)
-
-### Environment
-
-Copy `.env.example` → `.env.local` and set values:
-
-```
-NEXT_PUBLIC_SITE_URL=https://your-domain
+```env
+NEXT_PUBLIC_SITE_URL=https://trinitynaturopathic.com
 EMAIL_PROVIDER=resend # or smtp
-RESEND_API_KEY=...
-SMTP_HOST=...
-SMTP_PORT=...
-SMTP_USER=...
-SMTP_PASS=...
+RESEND_API_KEY=your_resend_api_key
+CONTACT_RECIPIENT=info@trinitynaturopathic.com
 NEXT_PUBLIC_ENABLE_ANALYTICS=true
+
+# If using SMTP
+SMTP_HOST=smtp.example.com
+SMTP_PORT=587
+SMTP_USER=your_smtp_user
+SMTP_PASS=your_smtp_password
 ```
 
-### Accessibility
+## Key Features
 
-- Header mobile menu uses Radix Sheet with hidden title for a11y
-- Buttons/links include `aria-label` where appropriate
-- Color contrast suitable for light/dark themes
+### SEO Optimization
 
-### Deployment
+- Page-level metadata with OpenGraph and Twitter Cards
+- Structured data (JSON-LD) with MedicalBusiness schema
+- Dynamic robots.txt and sitemap.xml
+- Keyword-optimized descriptions
+- Proper heading hierarchy
 
-- Vercel recommended. HTTPS enforced via `vercel.json`
-- Set env vars in Vercel project settings; re‑deploy
+### Responsive Design
 
-### Acceptance Checklist
+- Mobile-first approach
+- Optimized for all screen sizes
+- Touch-friendly navigation
+- Accessible color contrast
 
-- Header shows logo + Call button (desktop shows phone number, mobile shows “Call”)
-- Footer 4‑column layout with social/contact links
-- Home and Services reflect your content (images/details/pricing)
-- Location page shows your description, communities, and polygon map
-- Contact form sends email via chosen provider
-- Brand colors and radius applied globally
+### Email Contact System
+
+- Server-side form validation
+- Spam prevention (honeypot + time-to-submit)
+- Provider adapter pattern (Resend or SMTP)
+- Type-safe email handling
+
+### Dark Mode Support
+
+- System preference detection
+- Manual theme toggle
+- Properly inverted logos for light/dark themes
+- Optimized color palette for both themes
+
+## Social Media
+
+- **Facebook**: https://www.facebook.com/TrinityNaturopathic/
+- **Instagram**: https://www.instagram.com/trinitynaturopathic
+- **LinkedIn**: https://www.linkedin.com/company/trinitynaturopathic/
+
+## Deployment
+
+Recommended deployment platform: **Vercel**
+
+1. Push to GitHub
+2. Import project to Vercel
+3. Configure environment variables
+4. Deploy
+
+HTTPS is enforced via `vercel.json` configuration.
+
+## License
+
+Proprietary - Trinity Naturopathic © 2025

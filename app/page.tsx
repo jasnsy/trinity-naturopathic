@@ -4,6 +4,7 @@ import { symptoms } from "@/content/symptoms";
 import { faqs } from "@/content/faqs";
 import { Hero } from "@/components/hero";
 import { ContactForm } from "@/components/contact-form";
+import { BookNowCta } from "@/components/book-now-cta";
 
 export default function Home() {
 	return (
@@ -48,12 +49,17 @@ export default function Home() {
 				</div>
 			</section>
 
+			<BookNowCta
+				title="Ready to Start Your Wellness Journey?"
+				description="Take the first step toward better health. Book your personalized consultation today and discover how naturopathic care can help you thrive."
+				primaryButtonText="Book Your Consultation"
+			/>
+
 			<section id="contact" className="grid gap-4">
-				<h2 className="text-2xl font-semibold">Book Your Appointment</h2>
+				<h2 className="text-2xl font-semibold">Send Us a Message</h2>
 				<p className="text-muted-foreground">
-					Ready to start your journey to better health? Contact us to schedule your initial
-					consultation. We&apos;ll review your health concerns and create a personalized treatment
-					plan tailored to your unique needs.
+					Have questions or prefer to reach out directly? Fill out the form
+					below and we&apos;ll get back to you as soon as possible.
 				</p>
 				<ContactForm />
 			</section>
