@@ -18,7 +18,7 @@ import {
 const links = [
 	{ href: "/", label: "Home" },
 	{ href: "/services", label: "Services" },
-	{ href: "/conditions", label: "Conditions" },
+	{ href: "/conditions", label: "Conditions We Treat" },
 	{ href: "/about", label: "About" },
 	{ href: "/contact", label: "Contact" },
 	{ href: "/location", label: "Location" },
@@ -55,9 +55,14 @@ export const SiteHeader: React.FC = () => {
 									</SheetClose>
 								))}
 							</nav>
-							<div className="mt-4 grid gap-2">
+							<div className="mt-6 px-2 grid gap-3">
 								<Button asChild size="sm" className="w-full">
-									<a href="/contact" aria-label="Book online from menu">
+									<a
+										href="https://trinitynaturopathic.janeapp.com/"
+										target="_blank"
+										rel="noopener noreferrer"
+										aria-label="Book online from menu"
+									>
 										Book Online
 									</a>
 								</Button>
@@ -106,6 +111,15 @@ export const SiteHeader: React.FC = () => {
 					))}
 				</nav>
 				<div className="flex items-center gap-2">
+					<Button asChild variant="default" className="hidden sm:inline-flex">
+						<Link
+							href="https://trinitynaturopathic.janeapp.com/"
+							target="_blank"
+							aria-label="Book appointment"
+						>
+							Book Now
+						</Link>
+					</Button>
 					<Button asChild variant="default">
 						<a
 							href={`tel:${business.phone.replace(/[^+\d]/g, "")}`}
