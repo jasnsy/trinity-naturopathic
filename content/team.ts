@@ -1,5 +1,6 @@
 export type TeamMember = {
 	name: string;
+	slug: string; // URL-friendly identifier for profile pages
 	title: string;
 	credentials?: string;
 	shortBio: string;
@@ -12,6 +13,7 @@ export type TeamMember = {
 export const teamMembers: TeamMember[] = [
 	{
 		name: "Dr. Melanie Vicino, ND",
+		slug: "dr-melanie-vicino",
 		title: "Clinic Owner | Naturopathic Doctor",
 		credentials: "ND",
 		shortBio: `Dr. Melanie Vicino is a naturopathic doctor and founder of Trinity Naturopathic, specializing in complex neuropsychiatric and neurological conditions such as ADHD, Autism Spectrum Disorder, dysautonomia, and brain injury. She blends genetic-informed medicine with a holistic, faith-driven approach that supports each patient's unique biology and story. Passionate about neurodiversity and whole-person healing, Dr. Vicino brings warmth, compassion, and spiritual grounding to every interaction.`,
@@ -38,6 +40,7 @@ Whether you're navigating neurodivergence, recovering from trauma, or seeking wh
 	},
 	{
 		name: "Colleen Cartier, NP",
+		slug: "colleen-cartier",
 		title: "Nurse Practitioner | BHRT & Integrative Women's Health Specialist",
 		credentials: "NP",
 		shortBio:
@@ -62,6 +65,7 @@ With years of clinical experience and a deep commitment to personalized care, Co
 	},
 	{
 		name: "Yvonne Gilbert",
+		slug: "yvonne-gilbert",
 		title:
 			"Registered Massage Therapist (RMT) | Fascial Stretch Therapy (FST) Specialist",
 		credentials: "RMT",
@@ -91,6 +95,7 @@ As part of the collaborative care team at Trinity Naturopathic, Yvonne plays a v
 	},
 	{
 		name: "Vanessa Zurfluh-Noseworthy",
+		slug: "vanessa-noseworthy",
 		title:
 			"Herbalist | Hair Tissue Mineral Analysis (HTMA) Practitioner | Mineral Balancing Specialist",
 		credentials: "",
